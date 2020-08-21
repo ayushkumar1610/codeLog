@@ -3,5 +3,11 @@
 {% block title %} codeLog Home {% endblock title %}
 
 {% block content %}
-    <h1>Welcome to home page of codeLog</h1>
+    <div class="jumbotron"> 
+        <h1 class="display-4">codeLog app</h1> 
+        <p class="lead">A platform to get efficient code developed by you.</p> 
+        <p class="lead"> 
+            <a class="btn btn-primary btn-lg" href="{% url 'code_list' %}" role="button">View All Code Posts</a>
+        </p>
+    </div>    
 {% endblock content %}

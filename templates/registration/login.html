@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block title %} Login Page {% endblock title %}
 
 {% block content %}
     <h2>Login</h2>
     <form method = "POST">
         {% csrf_token %}   <!--XSS vernability security-->
-        {{ form.as_p }}    <!--display login form-->
-        <button type="submit">Login</button>
+        {{ form | crispy }}    <!--display login form-->
+        <button class = "btn btn-success ml-2" type="submit">Login</button>
     </form>
 {% endblock content %}

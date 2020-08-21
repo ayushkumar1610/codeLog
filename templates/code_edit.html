@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Edit code post{% endblock title %}
+
+{% block content %}
+    <h2>Edit Code Post</h2>
+    <form method = "POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    <a href="{% url 'code_list' %}"><button class="btn btn-outline-secondary cancel">Cancel</button></a>
+{% endblock content %}

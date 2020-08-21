@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Code list{% endblock title %}
+
+{% block content %}
+    {% for code in object_list %}  <!-- checks for the model in view and loop over it -->
+    <div class="card"> 
+        <div class="card-header"> 
+            <span class="font-weight-bold"><a class = "title" href="{% url 'code_detail' code.pk %}">{{ code.title }}</a></span> &middot; 
+            <span class="text-muted">by {{ code.author }} | {{ code.date }}</span> 
+        </div> 
+        <div class="card-body"> 
+            {{ code.body }} 
+        </div> 
+        <div class="card-footer text-center text-muted"> 
+            <a href="{% url 'code_edit' code.pk %}">Edit</a> | <a href="{% url 'code_delete' code.pk %}">Delete</a> 
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+{% endblock content %}
