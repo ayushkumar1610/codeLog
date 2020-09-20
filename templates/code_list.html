@@ -9,8 +9,8 @@
             <span class="font-weight-bold"><a class = "title" href="{% url 'code_detail' code.pk %}">{{ code.title }}</a></span> &middot; 
             <span class="text-muted">by {{ code.author }} | {{ code.date }}</span> 
         </div> 
-        <div class="card-body"> 
-            {{ code.body }} 
+        <div class="card-body preview"> 
+            {{ code.body | safe | truncatechars:500 }} 
         </div> 
         <div class="card-footer text-center text-muted"> 
             <a href="{% url 'code_edit' code.pk %}">Edit</a> | <a href="{% url 'code_delete' code.pk %}">Delete</a> 
@@ -19,3 +19,12 @@
     <br>
     {% endfor %}
 {% endblock content %}
+
+{% block front_js %}
+    <script>
+        let previews = document.getElementsByClassName('preview'); 
+        Array.from(previews).forEach((element)=>{
+            element.innerHTML = element.innerText;
+        })
+    </script>
+{% endblock front_js %}

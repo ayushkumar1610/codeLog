@@ -5,7 +5,7 @@
 {% block content %}
     <h2>{{object.title}}</h2>   <!-- object refers to model's object_list via views -->
     <h6 class="text-muted">&nbsp &nbsp -Posted by {{object.author}} on {{object.date}}</h6>
-    <p>{{object.body}}</p>
+    <p>{{object.body | safe}}</p>  
     <br>
     <a href="{% url 'code_edit' code.pk %}"><button class="btn btn-primary">Edit</button></a>
     <a href="{% url 'code_delete' code.pk %}"><button class="btn btn-danger ml-2">Delete</button></a>
