@@ -26,4 +26,4 @@ class CodeDeleteView(DeleteView):
 class CodeCreateView(CreateView):
     model = Code
     template_name = 'code_post.html'
-    fields = ('title', 'body', 'author')
+    fields = ('title', 'body', 'author',)
